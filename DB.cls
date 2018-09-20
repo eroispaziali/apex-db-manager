@@ -75,18 +75,6 @@ public with sharing class DB {
 		update pUpdate;
 	}
 
-	/** generic exception ********************************************************/
-	private static void raiseException(SObject pSObject, String pOperation) {
-		throw new DBException(
-			String.format(
-				'The {0} operation is not allowed because the SObject "{1}" is not accessible for the running user/context',
-				new String[] { 
-					pOperation,
-					pSObject.getSObjectType().getDescribe().getName()
-				}
-			)
-		);			
-	}
 
 	/** DB inner exception *******************************************************/
 	public class DBException extends Exception{}
